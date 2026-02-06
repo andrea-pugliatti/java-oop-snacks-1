@@ -15,8 +15,16 @@ public class ContoBancario {
         return this.numeroConto;
     }
 
+    public void setNumeroConto(int numero) {
+        this.numeroConto = numero;
+    }
+
     public BigDecimal getSaldo() {
         return this.saldo;
+    }
+
+    public void setSaldo(BigDecimal saldo) {
+        this.saldo = saldo;
     }
 
     public void deposita(BigDecimal somma) {
@@ -25,9 +33,11 @@ public class ContoBancario {
         }
     }
 
-    public void ritira(BigDecimal somma) {
-        if (somma.signum() == 1) {
+    public boolean ritira(BigDecimal somma) {
+        if (somma.signum() == 1 && this.saldo.compareTo(somma) == 1) {
             this.saldo = this.saldo.subtract(somma);
+            return true;
         }
+        return false;
     }
 }
