@@ -20,6 +20,6 @@ public class Main {
         registro.aggiungiStudente(anselmo);
         registro.aggiungiStudente(michele);
         registro.aggiungiStudente(genoveffo);
-        registro.stampaRegistro();
+        System.out.println(registro.toString());
     }
 }
