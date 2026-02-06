@@ -13,5 +13,13 @@ public class Main {
         conto.deposita(new BigDecimal(50));
         conto.ritira(new BigDecimal(150));
         System.out.println(conto.getSaldo());
+
+        Studente michele = new Studente("Michele", "Bistecca", 34);
+        Studente genoveffo = new Studente("Genoveffo", "Baita", 54);
+        RegistroStudenti registro = new RegistroStudenti();
+        registro.aggiungiStudente(anselmo);
+        registro.aggiungiStudente(michele);
+        registro.aggiungiStudente(genoveffo);
+        registro.stampaRegistro();
     }
 }
