@@ -7,11 +7,15 @@ public class Main {
         Studente anselmo = new Studente("Anselmo", "Bitta", 24);
         System.out.println(anselmo.getNomeEsteso());
 
+        EsitoMovimento esito;
         ContoBancario conto = new ContoBancario(32131);
-        conto.deposita(new BigDecimal(200));
-        conto.deposita(new BigDecimal(100));
+        conto.deposita(new BigDecimal(1200));
+        conto.deposita(new BigDecimal(-100));
         conto.deposita(new BigDecimal(50));
-        conto.ritira(new BigDecimal(150));
+        esito = conto.ritira(new BigDecimal(150));
+        System.out.println(esito);
+        esito = conto.ritira(new BigDecimal(-150));
+        System.out.println(esito);
         System.out.println(conto.getSaldo());
 
         Studente michele = new Studente("Michele", "Bistecca", 34);

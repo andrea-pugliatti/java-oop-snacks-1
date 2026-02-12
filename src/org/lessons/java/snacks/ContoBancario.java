@@ -27,17 +27,19 @@ public class ContoBancario {
         this.saldo = saldo;
     }
 
-    public void deposita(BigDecimal somma) {
+    public EsitoMovimento deposita(BigDecimal somma) {
         if (somma.signum() == 1) {
             this.saldo = this.saldo.add(somma);
+            return new EsitoMovimento(true, somma);
         }
+        return new EsitoMovimento(false, new BigDecimal(0));
     }
 
-    public boolean ritira(BigDecimal somma) {
-        if (somma.signum() == 1 && this.saldo.compareTo(somma) == 1) {
+    public EsitoMovimento ritira(BigDecimal somma) {
+        if (somma.signum() == 1 && this.saldo.compareTo(somma) >= 0) {
             this.saldo = this.saldo.subtract(somma);
-            return true;
+            return new EsitoMovimento(true, somma);
         }
-        return false;
+        return new EsitoMovimento(false, new BigDecimal(0));
     }
 }
